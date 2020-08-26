@@ -8,27 +8,29 @@
 
 <body>
     <h1>Listagem DNS</h1>
-    
+    <table border="1">
         <a href="{% url 'url_novo' %}">Novo registro</a><br><br>
-   
+        <tr>
+            <td>dominio</td>
+            <td>tipo</td>
+            <td>ip</td>
+            <td>prioridade</td>
+            <td></td>
+        </tr>
         {% for i in registro %}
-               
-                 {{ i.dominio2 }} 
-                -
-                 {{ i.categoria}} 
-                -
-                 {{ i.ip }}  
-                -
-                 {{ i.prioridade }}  
-                |
-                <a href="{% url 'url_alterar' i.id %}"> edit </a>  
-                |
-                <a href="{% url 'url_delete' i.id  %}"> remove </a>
-                |
+            <tr>
+                <td> {{ i.dominio2 }}  </td>
+                <td> {{ i.categoria}} </td>
+                <td> {{ i.ip }}  </td>
+                <td> {{ i.prioridade }}  </td>
+                <td> 
+                    <a href="{% url 'url_alterar' i.id %}"> edit </a>  
+                    <a href="{% url 'url_delete' i.id  %}"> remove </a>
+                </td>
 
-        
+            </tr>
         {% endfor %}
-    
+    </table>
 
 </body>
 </html>
